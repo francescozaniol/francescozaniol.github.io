@@ -1,0 +1,3 @@
+[submodule "xsalt"]
+	path = xsalt
+	url = https://github.com/francescozaniol/xsalt
