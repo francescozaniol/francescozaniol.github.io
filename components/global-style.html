@@ -1,0 +1,68 @@
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:template match="global-style" mode="x-component">
+<style>
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}body{line-height:1;}ol,ul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}table{border-collapse:collapse;border-spacing:0;}
+
+@media (prefers-reduced-motion) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/** {
+  animation: none !important;
+  transition: none !important;
+}*/
+
+* {
+  animation-play-state: paused !important;
+}
+html[data-animation-play-state=running] * {
+  animation-play-state: running !important;
+}
+
+html, body {
+  height: 100%;
+  color: #222;
+  background: #FFF;
+  line-height: 1.4;
+  font-size: 18px;
+  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -.025em;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+a, a:visited {
+  font: inherit;
+  color: #00F;
+  text-decoration: underline;
+}
+
+a:hover, a:active, a:focus {
+  text-decoration: none;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+</style>
+</xsl:template>
+</xsl:transform>

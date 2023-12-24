@@ -1,0 +1,15 @@
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:template match="secure" mode="x-component">
+
+  <template autobem="true">
+    <overlay data-id="secure">
+
+      <template x-slot="heading">Secure 🔒</template>
+
+      <p>Securing the Front End entails various measures, such as having a strict whitelisting approach to untrusted inputs, usage of Content Security Policy (CSP) headers in meta tags, and limiting the inclusion of few and trusted third-party libraries.</p>
+
+    </overlay>
+  </template>
+
+</xsl:template>
+</xsl:transform>

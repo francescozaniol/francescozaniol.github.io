@@ -1,0 +1,167 @@
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:template match="overlay" mode="x-component">
+
+  <template autobem="true">
+    <section x-data="">
+
+      <x-slot name="heading">
+        <h1 class="__heading">
+          <x-slot-content />
+        </h1>
+      </x-slot>
+
+      <div class="__content">
+        <x-slot />
+      </div>
+
+      <div class="__linkedin"><span style="font-size:1.4em;">🧐</span> Psst! check out my <a href="https://www.linkedin.com/in/francesco-zaniol-7b016a56" target="_blank">Linkedin profile</a> for a complete list of my skills and work experience!</div>
+
+      <span class="__close-btn" onclick="document.documentElement.setAttribute('data-route', 'landing')" />
+
+    </section>
+  </template>
+
+  <style autobem="true">
+    .\$ {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0;
+      max-width: 0;
+      transform: scale(.98) perspective(400px) rotate3d(0, 1, 0, -8deg) translate3d(-6%, 0, -89px);
+      transition:
+        opacity 1s 0s,
+        visibility 1s 0s,
+        transform 1s 0s,
+        max-width 0s 1s
+      ;
+      transition-timing-function: cubic-bezier(0, .8, .2, 1);
+      pointer-events: none;
+      overflow: auto;
+      padding: 0 20px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .\$:has(:focus-within),
+    html[data-route=fast] .\$[data-id=fast],
+    html[data-route=user-friendly] .\$[data-id=user-friendly],
+    html[data-route=secure] .\$[data-id=secure],
+    html[data-route=accessible] .\$[data-id=accessible],
+    html[data-route=websites-and-apps] .\$[data-id=websites-and-apps],
+    html[data-route=robust-and-efficient] .\$[data-id=robust-and-efficient] {
+      opacity: 1;
+      max-width: 100vw;
+      transform: none;
+      transition-delay: 0s;
+      pointer-events: auto;
+    }
+    .\$__close-btn {
+      cursor: pointer;
+      font-size: 28px;
+      text-transform: uppercase;
+      border: 2px solid #f5f5f5;
+      border-radius: 99em;
+      height: 22vh;
+      width: 22vh;
+      position: absolute;
+      top: 20px; left: auto; bottom: 0; right: 20px;
+      transform: rotate(-60deg) scale(0);
+      transition: transform 1s cubic-bezier(0.02, 0.99, 0.02, 0.99);
+    }
+    html[data-route=fast] .\$[data-id=fast] .\$__close-btn,
+    html[data-route=user-friendly] .\$[data-id=user-friendly] .\$__close-btn,
+    html[data-route=secure] .\$[data-id=secure] .\$__close-btn,
+    html[data-route=accessible] .\$[data-id=accessible] .\$__close-btn,
+    html[data-route=websites-and-apps] .\$[data-id=websites-and-apps] .\$__close-btn,
+    html[data-route=robust-and-efficient] .\$[data-id=robust-and-efficient] .\$__close-btn {
+      transform: none;
+    }
+    .\$__close-btn:before,
+    .\$__close-btn:after {
+      content: '';
+      display: block;
+      width: 30%;
+      height: 3px;
+      transform: translate(-1px, 2px) rotate(45deg);
+      background: currentColor;
+      margin: auto;
+      position: absolute;
+      top: 47%;
+      left: 36%;
+    }
+    .\$__close-btn:before {
+      transform: translate(0px, 2px) rotate(-45deg);
+    }
+    @media (max-width: 800px) {
+      .\$__close-btn {
+        height: 12vh;
+        width: 12vh;
+      }
+    }
+
+    .\$__heading {
+      font-size: 10vh;
+    }
+    @media (max-width: 800px) {
+      .\$__heading {
+        align-self: start;
+        font-size: 6vh;
+      }
+    }
+    @media (max-width: 400px) {
+      .\$__heading {
+        font-size: 5vh;
+      }
+    }
+
+    .\$__content {
+      font-size: 5vh;
+      max-width: 100vh;
+      margin: 3vh auto;
+    }
+    @media (max-width: 800px) {
+      .\$__content {
+        font-size: 4vh;
+      }
+    }
+    @media (max-width: 400px) {
+      .\$__content {
+        font-size: 3.5vh;
+      }
+    }
+
+    .\$__linkedin {
+      position: absolute;
+      top: auto;
+      left: auto;
+      bottom: 0;
+      right: 0;
+      padding: 1vh;
+      max-width: 100%;
+      font-size: 3vh;
+      line-height: 1.1;
+      text-align: center;
+    }
+    @media (max-width: 800px) {
+      .\$__linkedin {
+        font-size: 2.5vh;
+      }
+    }
+    @keyframes \$__linkedin {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    html[data-route=fast] .\$[data-id=fast] .\$__linkedin,
+    html[data-route=user-friendly] .\$[data-id=user-friendly] .\$__linkedin,
+    html[data-route=secure] .\$[data-id=secure] .\$__linkedin,
+    html[data-route=accessible] .\$[data-id=accessible] .\$__linkedin,
+    html[data-route=websites-and-apps] .\$[data-id=websites-and-apps] .\$__linkedin,
+    html[data-route=robust-and-efficient] .\$[data-id=robust-and-efficient] .\$__linkedin {
+      animation: \$__linkedin 2s ease 4s both;
+    }
+  </style>
+
+</xsl:template>
+</xsl:transform>

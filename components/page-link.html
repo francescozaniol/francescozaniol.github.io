@@ -1,0 +1,29 @@
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:template match="page-link" mode="x-component">
+
+  <template autobem="true">
+    <span class="$el">
+      <x-slot />
+    </span>
+  </template>
+
+  <script autoselect="true">/*<![CDATA[*/
+    $refs.el.onclick = function () {
+      document.documentElement.setAttribute('data-route', this.getAttribute('data-id'))
+    }
+  /*]]>*/</script>
+
+  <style autobem="true">/*<![CDATA[*/
+    .\$ {
+      color: #00F;
+      text-decoration: underline;
+      font-size: 1.1em;
+    }
+    .\$:hover {
+      cursor: pointer;
+      text-decoration: none;
+    }
+  /*]]>*/</style>
+
+</xsl:template>
+</xsl:transform>
