@@ -3,7 +3,7 @@
 
   <template autobem="true">
     <header>
-      <div class="__bg" />
+      <div class="__bg"><div class="__bg-img" /></div>
 
       <div class="__photo-wrapper">
         <img
@@ -60,6 +60,19 @@
       height: 46%;
       top: 0;
       opacity: .9;
+    }
+    @keyframes \$__bg-img {
+      from { background-position: 0% 100%; }
+      to { background-position: 100% 0%; }
+    }
+    .\$__bg-img {
+      animation: \$__bg-img 120s ease-in-out infinite alternate both;
+      background-color: transparent;
+      background-image: url(./assets/bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
     }
 
     @keyframes \$__main-wrapper {
