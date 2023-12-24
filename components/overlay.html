@@ -94,7 +94,7 @@
     .\$__close-btn:before {
       transform: translate(0px, 2px) rotate(-45deg);
     }
-    @media (max-width: 800px) {
+    @media (max-width: 1100px) {
       .\$__close-btn {
         height: 12vh;
         width: 12vh;
@@ -104,15 +104,19 @@
     .\$__heading {
       font-size: 10vh;
     }
-    @media (max-width: 800px) {
+    @media (max-width: 1100px) {
       .\$__heading {
-        align-self: start;
+        font-size: 7vh;
+      }
+    }
+    @media (max-width: 880px) {
+      .\$__heading {
         font-size: 6vh;
       }
     }
-    @media (max-width: 400px) {
+    @media (max-width: 420px) {
       .\$__heading {
-        font-size: 5vh;
+        font-size: 9vw;
       }
     }
 
@@ -121,14 +125,20 @@
       max-width: 100vh;
       margin: 3vh auto;
     }
-    @media (max-width: 800px) {
+    @media (max-width: 1100px) {
       .\$__content {
         font-size: 4vh;
       }
     }
-    @media (max-width: 400px) {
+    @media (max-width: 880px) {
       .\$__content {
-        font-size: 3.5vh;
+        font-size: 3vh;
+      }
+    }
+    @media (max-width: 420px) {
+      .\$__content {
+        line-height: 1.2;
+        font-size: 7vw;
       }
     }
 
@@ -144,9 +154,11 @@
       line-height: 1.1;
       text-align: center;
     }
-    @media (max-width: 800px) {
+    @media (max-width: 880px) {
       .\$__linkedin {
         font-size: 2.5vh;
+        right: auto;
+        max-width: 58vh;
       }
     }
     @keyframes \$__linkedin {

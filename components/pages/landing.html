@@ -72,11 +72,17 @@
       top: calc( 50% - 10vh );
       width: 100%;
       transform: translate3d(0, 19vh, 0);
+      font-size: 24vh;
+    }
+    @media (max-width: 500px) {
+      .\$__main-wrapper {
+        font-size: 20vh;
+      }
     }
 
     @keyframes \$__main {
-      from { font-size: 24vh; }
-      to { font-size: 10vh; }
+      from { font-size: 1em; }
+      to { font-size: .425em; }
     }
     .\$__main {
       animation: \$__main 1s cubic-bezier(.1, 1, .25, 1) 2s both;
@@ -84,7 +90,7 @@
       margin: 0;
       letter-spacing: -.05em;
       white-space: nowrap;
-      font-size: 10vh;
+      font-size: .425em;
     }
 
     .\$__main span {
@@ -101,7 +107,7 @@
     }
     @keyframes \$__main-2 {
       from { opacity: 0; transform: translate3d(0, 20px, 0); letter-spacing: -5rem; }
-      to { opacity: 1; transform: none; letter-spacing: 0; }
+      to { opacity: 1; transform: none; letter-spacing: -.05em; }
     }
     .\$__main span:nth-of-type(2) {
       animation-name: \$__main-2;
@@ -143,6 +149,13 @@
       width: 44vh;
       left: calc( 50% - 22vh );
     }
+    @media (max-width: 500px) {
+      .\$__photo-wrapper {
+        top: 17vh;
+        width: 40vh;
+        left: calc( 50% - 20vh );
+      }
+    }
     .\$__photo {
       width: 100%;
       display: block;
@@ -163,6 +176,13 @@
       letter-spacing: -.025em;
       color: #566;
       line-height: 3.6vh;
+      text-wrap: wrap;
+    }
+    @media (max-width: 500px) {
+      .\$__secondary {
+        font-size: 3vh;
+        top: 69vh;
+      }
     }
 
     @keyframes \$__description {
@@ -182,7 +202,8 @@
     }
     @media (max-width: 500px) {
       .\$__description {
-        font-size: 3vh;
+        font-size: 2.8vh;
+        top: 81.5vh;
       }
     }
 
@@ -195,23 +216,30 @@
       position: absolute;
       top: 0;
       right: 0;
-      padding: 1vh;
+      padding: 1.5vh 1vh 1vh 1vh;
     }
     .\$__available-inner {
       background: #FFF;
       color: #111;
-      font-size: 2.7vh;
+      font-size: 2.6vh;
       border-radius: 99em;
       padding: 0.3em 0.45em 0.2em 0.45em;
       line-height: 1;
       display: flex;
       align-items: center;
     }
+    @media (max-width: 400px) {
+      .\$__available-inner {
+        padding: 0.4em 0.45em 0.3em 0.45em;
+/*        font-size: 5.2vw;*/
+      }
+    }
     .\$__available a {
       height: 1.5em;
       padding: 0 0.25em 0 0.5em;
       position: relative;
       top: -0.1em;
+      flex: 0 0 auto;
     }
     .\$__available svg {
       display: block;
