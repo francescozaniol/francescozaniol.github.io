@@ -17,12 +17,14 @@
         <h1 class="__main"><span>Hi</span><span>,&#160;</span><span>I</span><span>'</span><span>m</span><span>&#160;F</span><span>r</span><span>a</span><span>n</span><span>k</span></h1>
       </div>
 
-      <h2 class="__secondary">
-        I am a senior frontend engineer with 10+ years of industry experience.
-      </h2>
+      <div class="__secondary">
+        <h2 class="__tagline">
+          I am a senior frontend engineer with 10+ years of industry experience.
+        </h2>
 
-      <div class="__description">
-        I build <page-link data-id="fast">fast</page-link>, <page-link data-id="user-friendly">user-friendly</page-link>, <page-link data-id="secure">secure</page-link> and <page-link data-id="accessible">accessible</page-link>&#160;<page-link data-id="websites-and-apps">websites and apps</page-link>,<br/>while delivering <page-link data-id="robust-and-efficient">robust and efficient</page-link> solutions.
+        <div class="__description">
+          I build <page-link data-id="fast">fast</page-link>, <page-link data-id="user-friendly">user-friendly</page-link>, <page-link data-id="secure">secure</page-link> and <page-link data-id="accessible">accessible</page-link>&#160;<page-link data-id="websites-and-apps">websites and apps</page-link>,<br/>while delivering <page-link data-id="robust-and-efficient">robust and efficient</page-link> solutions.
+        </div>
       </div>
 
       <div class="__available">
@@ -73,14 +75,13 @@
       width: 100%;
       transform: translate3d(0, 19vh, 0);
       font-size: 24vh;
-      font-size: min(42vw, 24vh);
+/*      font-size: min(42vw, 24vh);*/
     }
-    /*@media (max-width: 500px) {
+    @media (orientation: portrait) {
       .\$__main-wrapper {
-        font-size: 20vh;
-        font-size: min(42vw, 20vh);
+        font-size: 30vw;
       }
-    }*/
+    }
 
     @keyframes \$__main {
       from { font-size: 1em; }
@@ -149,19 +150,11 @@
       position: absolute;
       top: auto;
       bottom: 42vh;
-/*      top: min(90vw, 12vh);*/
       left: 0;
       right: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    @media (max-width: 500px) {
-      .\$__photo-wrapper {
-/*        top: 17vh;*/
-/*        width: 40vh;*/
-/*        left: calc( 50% - 20vh );*/
-      }
     }
     .\$__photo {
       width: 44vh;
@@ -171,27 +164,37 @@
       border-radius: 99em;
     }
 
-    @keyframes \$__secondary {
+    .\$__secondary {
+      position: absolute;
+      top: 70vh;
+      left: 0;
+      right: 0;
+    }
+    @media (orientation: portrait) {
+      .\$__secondary {
+        top: 69vh;
+      }
+    }
+
+    @keyframes \$__tagline {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    .\$__secondary {
-      animation: \$__secondary 2s ease 6s both;
-      position: absolute;
-      width: 44vh;
+    .\$__tagline {
+      animation: \$__tagline 2s ease 6s both;
+      max-width: 44vh;
       padding: 0 2vh;
-      left: calc( 50% - 22vh );
+      margin: 0 auto 2vh auto;
       letter-spacing: -.025em;
       color: #566;
       line-height: 1.2;
       text-wrap: wrap;
-      top: 70vh;
       font-size: 3.2vh;
-      font-size: min(7.25vw, 3.2vh);
     }
-    @media (max-width: 500px) {
-      .\$__secondary {
-        top: 69vh;
+    @media (orientation: portrait) {
+      .\$__tagline {
+        font-size: 4.25vw;
+        font-size: min(4.25vw, 3.2vh);
       }
     }
 
@@ -201,19 +204,15 @@
     }
     .\$__description {
       animation: \$__description 1s ease 9s both;
-      position: absolute;
-      left: 0;
-      right: 0;
       color: #111;
       line-height: 1.2;
       padding: 0 2vw;
-      top: 83vh;
       font-size: 3.3vh;
-      font-size: min(5.5vw, 3.3vh);
     }
-    @media (max-width: 500px) {
+    @media (orientation: portrait) {
       .\$__description {
-        top: 81.5vh;
+        font-size: 5vw;
+        font-size: min(5vw, 3.3vh);
       }
     }
 
@@ -241,7 +240,6 @@
     @media (max-width: 400px) {
       .\$__available-inner {
         padding: 0.4em 0.45em 0.3em 0.45em;
-/*        font-size: 5.2vw;*/
       }
     }
     .\$__available a {
