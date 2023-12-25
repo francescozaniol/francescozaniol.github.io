@@ -61,7 +61,7 @@
       cursor: pointer;
       font-size: 28px;
       text-transform: uppercase;
-      border: 2px solid #f5f5f5;
+      border: 2px solid #EEE;
       border-radius: 99em;
       height: 22vh;
       width: 22vh;
@@ -82,22 +82,28 @@
     .\$__close-btn:after {
       content: '';
       display: block;
-      width: 30%;
+      width: 6vh;
       height: 3px;
-      transform: translate(-1px, 2px) rotate(45deg);
+      transform: rotate(45deg);
       background: currentColor;
       margin: auto;
       position: absolute;
-      top: 47%;
-      left: 36%;
+      left: calc(50% - 3vh + 1px);
+      top: calc(50% - 2px);
     }
     .\$__close-btn:before {
-      transform: translate(0px, 2px) rotate(-45deg);
+      transform: rotate(-45deg);
     }
     @media (max-width: 1100px) {
       .\$__close-btn {
         height: 12vh;
         width: 12vh;
+      }
+      .\$__close-btn:before,
+      .\$__close-btn:after {
+        width: 4vh;
+        left: calc(50% - 2vh + 1px);
+        top: calc(50% - 2px);
       }
     }
 
