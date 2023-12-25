@@ -66,7 +66,7 @@
       height: 22vh;
       width: 22vh;
       position: absolute;
-      top: 20px; left: auto; bottom: 0; right: 20px;
+      top: 4vh; left: auto; bottom: 0; right: 4vh;
       transform: rotate(-60deg) scale(0);
       transition: transform 1s cubic-bezier(0.02, 0.99, 0.02, 0.99);
     }
@@ -124,24 +124,10 @@
 
     .\$__content {
       font-size: 5vh;
+      font-size: min(7vw, 4vh);
+      line-height: 1.2;
       max-width: 100vh;
       margin: 3vh auto;
-    }
-    @media (max-width: 1100px) {
-      .\$__content {
-        font-size: 4vh;
-      }
-    }
-    @media (max-width: 880px) {
-      .\$__content {
-        font-size: 3vh;
-      }
-    }
-    @media (max-width: 420px) {
-      .\$__content {
-        line-height: 1.2;
-        font-size: 7vw;
-      }
     }
 
     .\$__linkedin {

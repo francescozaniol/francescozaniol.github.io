@@ -169,18 +169,19 @@
     .\$__secondary {
       animation: \$__secondary 2s ease 6s both;
       position: absolute;
-      top: 70vh;
-      width: 40vh;
-      left: calc( 50% - 20vh );
-      font-size: 3.2vh;
+      width: 42vh;
+      padding: 0 2vh;
+      left: calc( 50% - 21vh );
       letter-spacing: -.025em;
       color: #566;
-      line-height: 3.6vh;
+      line-height: 1.2;
       text-wrap: wrap;
+      top: 70vh;
+      font-size: 3.2vh;
+      font-size: min(8.25vw, 3.2vh);
     }
     @media (max-width: 500px) {
       .\$__secondary {
-        font-size: 3vh;
         top: 69vh;
       }
     }
@@ -192,17 +193,17 @@
     .\$__description {
       animation: \$__description 1s ease 9s both;
       position: absolute;
-      top: 83vh;
       left: 0;
       right: 0;
       color: #111;
       line-height: 1.2;
-      font-size: 3.3vh;
       padding: 0 2vw;
+      top: 83vh;
+      font-size: 3.3vh;
+      font-size: min(6.5vw, 3.3vh);
     }
     @media (max-width: 500px) {
       .\$__description {
-        font-size: 2.8vh;
         top: 81.5vh;
       }
     }
