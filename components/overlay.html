@@ -3,21 +3,23 @@
 
   <template autobem="true">
     <section>
+      <div class="__inner">
 
-      <x-slot name="heading">
-        <h1 class="__heading">
-          <x-slot-content />
-        </h1>
-      </x-slot>
+        <x-slot name="heading">
+          <h1 class="__heading">
+            <x-slot-content />
+          </h1>
+        </x-slot>
 
-      <div class="__content">
-        <x-slot />
+        <div class="__content">
+          <x-slot />
+        </div>
+
+        <div class="__linkedin"><span style="font-size:1.4em;">🧐</span> Psst! check out my <a href="https://www.linkedin.com/in/francesco-zaniol-7b016a56" target="_blank">Linkedin profile</a> for a complete list of my skills and work experience!</div>
+
+        <span class="__close-btn" onclick="document.body.setAttribute('data-route', 'landing')" />
+
       </div>
-
-      <div class="__linkedin"><span style="font-size:1.4em;">🧐</span> Psst! check out my <a href="https://www.linkedin.com/in/francesco-zaniol-7b016a56" target="_blank">Linkedin profile</a> for a complete list of my skills and work experience!</div>
-
-      <span class="__close-btn" onclick="document.body.setAttribute('data-route', 'landing')" />
-
     </section>
   </template>
 
@@ -25,10 +27,14 @@
     .\$ {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      opacity: 0;
+      perspective-origin:center;
       -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d;
       -webkit-backface-visibility: hidden;
+      perspective: 400px;
+      pointer-events: none;
+    }
+    .\$__inner {
       transform: scale(.98) perspective(400px) rotate3d(0, 1, 0, -8deg) translate3d(-6%, 0, -89px);
       transition:
         opacity 1s,
@@ -36,7 +42,6 @@
         transform 1s
       ;
       transition-timing-function: cubic-bezier(0, .8, .2, 1);
-      pointer-events: none;
       overflow: auto;
       padding: 0 20px;
       background: white;
@@ -45,6 +50,9 @@
       justify-content: center;
       flex-direction: column;
       z-index: 999;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0;
     }
     body[data-route=fast] .\$[data-id=fast],
     body[data-route=user-friendly] .\$[data-id=user-friendly],
@@ -52,9 +60,16 @@
     body[data-route=accessible] .\$[data-id=accessible],
     body[data-route=websites-and-apps] .\$[data-id=websites-and-apps],
     body[data-route=robust-and-efficient] .\$[data-id=robust-and-efficient] {
+      pointer-events: auto;
+    }
+    body[data-route=fast] .\$[data-id=fast] .\$__inner,
+    body[data-route=user-friendly] .\$[data-id=user-friendly] .\$__inner,
+    body[data-route=secure] .\$[data-id=secure] .\$__inner,
+    body[data-route=accessible] .\$[data-id=accessible] .\$__inner,
+    body[data-route=websites-and-apps] .\$[data-id=websites-and-apps] .\$__inner,
+    body[data-route=robust-and-efficient] .\$[data-id=robust-and-efficient] .\$__inner {
       opacity: 1;
       transform: none;
-      pointer-events: auto;
     }
     .\$__close-btn {
       cursor: pointer;
