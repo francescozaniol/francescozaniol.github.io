@@ -2,25 +2,36 @@
 <xsl:template match="page-link" mode="x-component">
 
   <template autobem="true">
-    <span class="$el">
+    <button type="button" class="$el">
       <x-slot />
-    </span>
+    </button>
   </template>
 
   <script autoselect="true">/*<![CDATA[*/
-    $refs.el.onclick = function () {
+    $refs.el.addEventListener('click', function () {
       document.documentElement.setAttribute('data-route', this.getAttribute('data-id'))
-    }
+    })
   /*]]>*/</script>
 
   <style autobem="true">/*<![CDATA[*/
     .\$ {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      box-shadow: none;
+      line-height: 1;
+      text-align: inherit;
+      font: inherit;
       color: #005aff;
       text-decoration: underline;
       font-size: 1.1em;
     }
     .\$:hover {
-      cursor: pointer;
       text-decoration: none;
     }
   /*]]>*/</style>
