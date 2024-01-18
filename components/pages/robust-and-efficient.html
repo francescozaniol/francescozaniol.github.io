@@ -2,7 +2,8 @@
 <xsl:template match="robust-and-efficient" mode="x-component">
 
   <template autobem="true">
-    <overlay data-id="robust-and-efficient">
+    <overlay>
+      <xsl:attribute name="id"><xsl:value-of select="name(.)" /></xsl:attribute>
 
       <template x-slot="heading">Robust and Efficient 🎯</template>
 

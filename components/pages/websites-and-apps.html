@@ -2,7 +2,8 @@
 <xsl:template match="websites-and-apps" mode="x-component">
 
   <template autobem="true">
-    <overlay data-id="websites-and-apps">
+    <overlay>
+      <xsl:attribute name="id"><xsl:value-of select="name(.)" /></xsl:attribute>
 
       <template x-slot="heading">Websites and Apps 🚀</template>
 

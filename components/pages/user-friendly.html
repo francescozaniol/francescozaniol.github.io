@@ -2,7 +2,8 @@
 <xsl:template match="user-friendly" mode="x-component">
 
   <template autobem="true">
-    <overlay data-id="user-friendly">
+    <overlay>
+      <xsl:attribute name="id"><xsl:value-of select="name(.)" /></xsl:attribute>
 
       <template x-slot="heading">User Friendly 🧑‍🚀</template>
 

@@ -2,7 +2,8 @@
 <xsl:template match="accessible" mode="x-component">
 
   <template autobem="true">
-    <overlay data-id="accessible">
+    <overlay>
+      <xsl:attribute name="id"><xsl:value-of select="name(.)" /></xsl:attribute>
 
       <template x-slot="heading">Accessible 🧗</template>
 

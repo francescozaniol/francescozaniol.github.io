@@ -1,0 +1,41 @@
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:template match="scroll-handler" mode="x-component">
+
+  <template></template>
+
+  <style>
+    html {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      scroll-snap-align: center;
+      scroll-snap-type: y proximity;
+      scroll-behavior: smooth;
+    }
+  </style>
+
+  <script>/*<![CDATA[*/
+    function attachIntersectionObserver(node, fn, params = {}) {
+      if ( !window.IntersectionObserver ) return;
+      if ( !node || !fn ) return;
+      attachIntersectionObserver.observer = attachIntersectionObserver.observer || new window.IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => fn(entry.target, parseInt(entry.intersectionRatio*100)));
+      }, { root: params.root || null, rootMargin: params.rootMargin || '0px', threshold: params.threshold || [0,.01] });
+      attachIntersectionObserver.observer.observe(node);
+    }
+    var nodes = Array.prototype.slice.call(document.querySelectorAll('.overlay'), 0);
+    nodes.push(document.querySelector('.landing'));
+    for (var node of nodes) {
+      attachIntersectionObserver(node, (n, visibility) => {
+        n.setAttribute('data-active', visibility > 50);
+        n.setAttribute('data-hidden', visibility < 10);
+        if ( visibility > 50 ) {
+          document.body.setAttribute('data-active-section', n.id);
+        }
+      },{
+        threshold: Array.from(Array(100).keys()).map( i => i/100 ),
+      });
+    }
+  /*]]>*/</script>
+
+</xsl:template>
+</xsl:transform>

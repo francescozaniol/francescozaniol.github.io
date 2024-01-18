@@ -8,8 +8,15 @@
   </template>
 
   <script autoselect="true">/*<![CDATA[*/
+    function scrollTo (sectionId) {
+      window.scrollTo({
+        top: (window.pageYOffset + document.getElementById(sectionId).getBoundingClientRect().top),
+        behavior: 'smooth'
+      });
+    }
+    this.scrollTo = scrollTo;
     $refs.el.addEventListener('click', function () {
-      document.body.setAttribute('data-route', this.getAttribute('data-id'))
+      scrollTo(this.getAttribute('data-id'));
     })
   /*]]>*/</script>
 
@@ -28,12 +35,22 @@
       text-align: inherit;
       font: inherit;
       color: #005aff;
-      text-decoration: underline;
       font-size: 1.1em;
+      transition: color .2s cubic-bezier(.1, 1, .6, 1);
     }
-    .\$:hover {
+    .\$:hover,
+    .\$:active,
+    .\$:focus {
       text-decoration: none;
     }
+    [data-active-section=fast] .\$[data-id=fast] { color: #dd0000; }
+    [data-active-section=user-friendly] .\$[data-id=user-friendly] { color: #dd0000; }
+    [data-active-section=secure] .\$[data-id=secure] { color: #dd0000; }
+    [data-active-section=accessible] .\$[data-id=accessible] { color: #dd0000; }
+    [data-active-section=websites-and-apps] .\$[data-id=websites-and-apps] { color: #dd0000; }
+    [data-active-section=robust-and-efficient] .\$[data-id=robust-and-efficient] { color: #dd0000; }
+    [data-active-section=team] .\$[data-id=team] { color: #dd0000; }
+    [data-active-section=job] .\$[data-id=job] { color: #dd0000; }
   /*]]>*/</style>
 
 </xsl:template>

@@ -2,7 +2,7 @@
 <xsl:template match="landing" mode="x-component">
 
   <template autobem="true">
-    <header>
+    <section>
       <div class="__bg" />
 
       <div class="__content">
@@ -23,7 +23,7 @@
         </h2>
 
         <div class="__description">
-          I build <page-link data-id="fast">fast</page-link>, <page-link data-id="user-friendly">user-friendly</page-link>, <page-link data-id="secure">secure</page-link> and <page-link data-id="accessible">accessible</page-link>&#160;<page-link data-id="websites-and-apps">websites and apps</page-link>,<br/>while delivering <page-link data-id="robust-and-efficient">robust and efficient</page-link> solutions.
+          I build <page-link data-id="fast">fast</page-link>, <page-link data-id="user-friendly">user-friendly</page-link>, <page-link data-id="secure">secure</page-link> and <page-link data-id="accessible">accessible</page-link>&#160;<page-link data-id="websites-and-apps">websites and apps</page-link>,<br/>while delivering <page-link data-id="robust-and-efficient">robust and efficient</page-link> solutions. If you want me on <page-link data-id="team">your team</page-link>, <page-link data-id="job">count me in</page-link>.
         </div>
       </div>
 
@@ -36,22 +36,20 @@
         </div>
       </div>
 
+      <div class="__scroll $scroll" />
+
       <div class="__made-with">
         made with <a href="https://github.com/francescozaniol/xsalt" target="_blank">xsalt</a>
       </div>
-    </header>
+    </section>
   </template>
 
   <style autobem="true">/*<![CDATA[*/
     .\$ {
-      position: absolute;
-      top: 0; left: 0; bottom: 0; right: 0;
+      scroll-snap-align: center;
+      height: 100%;
       text-align: center;
-      opacity: 0;
       transition: opacity .6s ease;
-    }
-    body[data-route=landing] .\$ {
-      opacity: 1;
     }
 
     @keyframes \$__bg {
@@ -154,8 +152,8 @@
     }
 
     @keyframes \$__photo-wrapper {
-      from { opacity: 0; transform: translate3d(0, 40px, 0); pointer-events: none; }
-      to { opacity: 1; transform: none; pointer-events: auto; }
+      from { opacity: 0.001; transform: translate3d(0, 40px, 0); }
+      to { opacity: 1; transform: none; }
     }
     .\$__photo-wrapper {
       animation: \$__photo-wrapper 1s cubic-bezier(.1, 1, .25, 1) 4s both;
@@ -196,7 +194,7 @@
       to { opacity: 1; pointer-events: auto; }
     }
     .\$__tagline {
-      animation: \$__tagline 2s ease 6s both;
+      animation: \$__tagline 1.8s cubic-bezier(.1, 1, .6, 1) 6s both;
       max-width: 44vh;
       padding: 0 2vh;
       margin: 0 auto 2vh auto;
@@ -220,11 +218,13 @@
     .\$__description {
       animation: \$__description 1s ease 9s both;
       color: #111;
+      background: #FFF;
       line-height: 1.2;
       padding: 0 2vw;
       font-size: 3.3vh;
       margin: 0 auto auto auto;
       text-wrap: balance;
+      transition: transform .2s ease;
     }
     @media (orientation: portrait) {
       .\$__description {
@@ -311,29 +311,29 @@
       color: inherit;
     }
 
+    .\$__description {
+      transition: padding .6s cubic-bezier(.1, 1, .6, 1);
+    }
+    .\$[data-hidden="false"] .\$__description {
+      transform: none;
+    }
+    .\$[data-hidden="true"] .\$__description {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      width: 100%;
+      background: rgba(255,255,255,.9);
+      border-bottom: 1px solid #efefef;
+      padding: 1em 0;
+    }
+
   /*]]>*/</style>
 
   <script>/*<![CDATA[*/
-
-    var i = 0;
-
-    function runAnimations () {
-      if (!document.hasFocus() && i < 4) {
-        setTimeout(runAnimations, 1000);
-        i++;
-        return;
-      }
+    document.addEventListener("DOMContentLoaded", function () {
       document.documentElement.setAttribute('data-animation-play-state', 'running');
-    }
-
-    document.addEventListener("DOMContentLoaded", runAnimations);
-
-    window.addEventListener('keydown', e => {
-      if ( e.key === 'Escape' ) {
-        document.documentElement.setAttribute('data-route', 'landing')
-      }
     });
-
   /*]]>*/</script>
 
 </xsl:template>

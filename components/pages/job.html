@@ -1,0 +1,27 @@
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:template match="job" mode="x-component">
+
+  <template autobem="true">
+    <overlay>
+      <xsl:attribute name="id"><xsl:value-of select="name(.)" /></xsl:attribute>
+
+      <template x-slot="heading">Ready to work ☕</template>
+
+      <p class="__p">I'm currently open to work.</p>
+
+      <p class="__p">Check out my <a href="https://www.linkedin.com/in/francesco-zaniol-7b016a56" target="_blank">Linkedin profile</a> for contact info and for a complete list of my skills and work experience.</p>
+
+    </overlay>
+  </template>
+
+  <style autobem="true">/*<![CDATA[*/
+    .\$__p {
+      text-align: center;
+    }
+    .\$__p + .\$__p {
+      margin-top: 3vh;
+    }
+  /*]]>*/</style>
+
+</xsl:template>
+</xsl:transform>

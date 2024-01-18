@@ -1,0 +1,16 @@
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:template match="team" mode="x-component">
+
+  <template autobem="true">
+    <overlay>
+      <xsl:attribute name="id"><xsl:value-of select="name(.)" /></xsl:attribute>
+
+      <template x-slot="heading">Go team! 🙌</template>
+
+      <p>I value collaboration above all. I prioritize the client's vision while also providing professional guidance. I'm fun to work with: I believe it's important to work with positive and cheerful people.</p>
+
+    </overlay>
+  </template>
+
+</xsl:template>
+</xsl:transform>
