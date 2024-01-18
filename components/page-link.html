@@ -8,15 +8,14 @@
   </template>
 
   <script autoselect="true">/*<![CDATA[*/
-    function scrollTo (sectionId) {
+    window.xsalt.components['page-link'].scrollTo = function (sectionId) {
       window.scrollTo({
         top: (window.pageYOffset + document.getElementById(sectionId).getBoundingClientRect().top),
         behavior: 'smooth'
       });
     }
-    this.scrollTo = scrollTo;
     $refs.el.addEventListener('click', function () {
-      scrollTo(this.getAttribute('data-id'));
+      window.xsalt.components['page-link'].scrollTo(this.getAttribute('data-id'));
     })
   /*]]>*/</script>
 

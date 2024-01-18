@@ -23,18 +23,18 @@
         </h2>
 
         <div class="__description">
-          I build <page-link data-id="fast">fast</page-link>, <page-link data-id="user-friendly">user-friendly</page-link>, <page-link data-id="secure">secure</page-link> and <page-link data-id="accessible">accessible</page-link>&#160;<page-link data-id="websites-and-apps">websites and apps</page-link>,<br/>while delivering <page-link data-id="robust-and-efficient">robust and efficient</page-link> solutions. If you want me on <page-link data-id="team">your team</page-link>, <page-link data-id="job">count me in</page-link>.
+          I build <page-link data-id="fast">fast</page-link>, <page-link data-id="user-friendly">user-friendly</page-link>, <page-link data-id="secure">secure</page-link> and <page-link data-id="accessible">accessible</page-link>&#160;<page-link data-id="websites-and-apps">websites and apps</page-link>, while delivering <page-link data-id="robust-and-efficient">robust and efficient</page-link> solutions. If you want me on <page-link data-id="team">your team</page-link>, <page-link data-id="job">count me in</page-link>.
         </div>
       </div>
 
-      <div class="__available">
+      <!-- <div class="__available">
         <div class="__available-inner">
           <span class="__available-face">😱&#160;</span>
           <span class="__available-txt">OMG! Frank is open to work! You should totally hire him</span>
           <span class="__available-right-hand">👉</span>
           <a class="__available-linkedin" href="https://www.linkedin.com/in/francesco-zaniol-7b016a56" target="_blank"><svg alt="Linkedin" height="72" viewBox="0 0 72 72" width="72" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" fill="#007EBB"/><path d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z" fill="#FFF"/></g></svg></a>
         </div>
-      </div>
+      </div> -->
 
       <div class="__scroll $scroll" />
 
@@ -219,8 +219,9 @@
       animation: \$__description 1s ease 9s both;
       color: #111;
       background: #FFF;
+      z-index: 9999;
       line-height: 1.2;
-      padding: 0 2vw;
+      padding: 0 2vw 1vh 2vw;
       font-size: 3.3vh;
       margin: 0 auto auto auto;
       text-wrap: balance;
@@ -229,7 +230,7 @@
     @media (orientation: portrait) {
       .\$__description {
         font-size: 5vw;
-        font-size: min(5vw, 3.3vh);
+        font-size: min(4vw, 3.3vh);
       }
     }
 
@@ -321,19 +322,77 @@
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 9999;
       width: 100%;
       background: rgba(255,255,255,.9);
       border-bottom: 1px solid #efefef;
-      padding: 1em 0;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+    }
+
+
+    @keyframes \$__scroll {
+      0% { opacity: 0; transform: translate3d(0, -50%, 0); }
+      100% { opacity: 1; transform: none; }
+    }
+    .\$__scroll {
+      animation: \$__scroll .6s cubic-bezier(0.1, 1, 0.11, 1.54) 11s both;
+      position: fixed;
+      top: auto; left: calc(50% - 6vh); bottom: 3vh; right: auto;
+      width: 12vh;
+      height: 5vh;
+      cursor: pointer;
+    }
+    @media (orientation: portrait) {
+      .\$__scroll {
+        width: 12vw;
+        left: calc(50% - 6vw);
+        height: 5vw;
+      }
+    }
+    .\$__scroll:before,
+    .\$__scroll:after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 1px;
+      transform-origin: center left;
+      transform: rotate(-135deg);
+      background: currentColor;
+      margin: auto;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+    }
+    .\$__scroll:before {
+      transform: rotate(-45deg);
+    }
+    [data-active-section=job] .\$__scroll {
+      visibility: hidden;
+      pointer-events: none;
     }
 
   /*]]>*/</style>
 
-  <script>/*<![CDATA[*/
+  <script autoselect="true">/*<![CDATA[*/
     document.addEventListener("DOMContentLoaded", function () {
       document.documentElement.setAttribute('data-animation-play-state', 'running');
     });
+
+    var sections = [
+      'fast',
+      'user-friendly',
+      'secure',
+      'accessible',
+      'websites-and-apps',
+      'robust-and-efficient',
+      'team',
+      'job',
+    ];
+    $refs.scroll.onclick = function () {
+      var currentSection = document.body.getAttribute('data-active-section');
+      var i = sections.indexOf(currentSection);
+      window.xsalt.components['page-link'].scrollTo(i === -1 ? 'fast' : sections[i+1]);
+    }
   /*]]>*/</script>
 
 </xsl:template>
