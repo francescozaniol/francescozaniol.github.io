@@ -3,6 +3,7 @@
 
   <template autobem="true">
     <section>
+      <xsl:attribute name="id"><xsl:value-of select="name(.)" /></xsl:attribute>
       <div class="__bg" />
 
       <div class="__content">
@@ -36,7 +37,7 @@
         </div>
       </div> -->
 
-      <div class="__scroll $scroll" />
+      <div class="__scroll $scroll"><div /></div>
 
       <div class="__made-with">
         made with <a href="https://github.com/francescozaniol/xsalt" target="_blank">xsalt</a>
@@ -353,8 +354,14 @@
         height: 5vw;
       }
     }
-    .\$__scroll:before,
-    .\$__scroll:after {
+    .\$__scroll > div {
+      width: 100%;
+      height: 100%;
+      transition: transform .2s ease;
+      transform-origin: center center;
+    }
+    .\$__scroll > div:before,
+    .\$__scroll > div:after {
       content: '';
       display: block;
       width: 50%;
@@ -366,13 +373,13 @@
       position: absolute;
       left: 50%;
       top: 100%;
+      transition: transform .2s ease;
     }
-    .\$__scroll:before {
+    .\$__scroll > div:before {
       transform: rotate(-45deg);
     }
-    [data-active-section=job] .\$__scroll {
-      visibility: hidden;
-      pointer-events: none;
+    [data-active-section=job] .\$__scroll > div {
+      transform: rotate(180deg);
     }
 
   /*]]>*/</style>
@@ -383,6 +390,7 @@
     });
 
     var sections = [
+      'landing',
       'fast',
       'user-friendly',
       'secure',
@@ -395,7 +403,8 @@
     $refs.scroll.onclick = function () {
       var currentSection = document.body.getAttribute('data-active-section');
       var i = sections.indexOf(currentSection);
-      window.xsalt.components['page-link'].scrollTo(i === -1 ? 'fast' : sections[i+1]);
+      if ( i < 0 || i >= sections.length-1 ) i = -1;
+      window.xsalt.components['page-link'].scrollTo(sections[i+1]);
     }
   /*]]>*/</script>
 
