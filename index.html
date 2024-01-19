@@ -66,17 +66,7 @@
       document.documentElement.setAttribute('data-animation-play-state', 'running');
     });
 
-    var sections = [
-      'landing',
-      'fast',
-      'user-friendly',
-      'secure',
-      'accessible',
-      'websites-and-apps',
-      'robust-and-efficient',
-      'team',
-      'job',
-    ];
+    var sections = ['landing', 'fast', 'user-friendly', 'secure', 'accessible', 'websites-and-apps', 'robust-and-efficient', 'team', 'job'];
     $refs.scroll.onclick = function () {
       var currentSection = document.body.getAttribute('data-active-section');
       var i = sections.indexOf(currentSection);
@@ -93,6 +83,11 @@
     $refs.el.addEventListener('click', function () {
       window.xsalt.components['page-link'].scrollTo(this.getAttribute('data-id'));
     })
-  /**/};window.xsalt.components['page-link'].wrapper=null;window.xsalt.autoselect('page-link',null,window.xsalt.components['page-link'].wrapper).forEach(function(c){window.xsalt.components['page-link'].instances[c.id].$this=window.xsalt.components['page-link'].init.call(c)});</script>
+  /**/};window.xsalt.components['page-link'].wrapper=null;window.xsalt.autoselect('page-link',null,window.xsalt.components['page-link'].wrapper).forEach(function(c){window.xsalt.components['page-link'].instances[c.id].$this=window.xsalt.components['page-link'].init.call(c)});(function(){
+console.log('=======================================');
+console.log('What you doing here? Cheking out my code hey?');
+console.log('I guarantee this is some high quality stuff, I\'m telling ya!');
+console.log('=======================================');
+}());</script>
 </body>
 </html>

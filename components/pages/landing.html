@@ -388,17 +388,7 @@
       document.documentElement.setAttribute('data-animation-play-state', 'running');
     });
 
-    var sections = [
-      'landing',
-      'fast',
-      'user-friendly',
-      'secure',
-      'accessible',
-      'websites-and-apps',
-      'robust-and-efficient',
-      'team',
-      'job',
-    ];
+    var sections = ['landing', 'fast', 'user-friendly', 'secure', 'accessible', 'websites-and-apps', 'robust-and-efficient', 'team', 'job'];
     $refs.scroll.onclick = function () {
       var currentSection = document.body.getAttribute('data-active-section');
       var i = sections.indexOf(currentSection);
