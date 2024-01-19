@@ -90,6 +90,7 @@
     @media (orientation: portrait) {
       .\$__main-wrapper {
         font-size: 30vw;
+        font-size: min(30vw, 22vh);
       }
     }
 
@@ -175,7 +176,7 @@
     }
     @media (orientation: portrait) {
       .\$__photo {
-        max-width: 70vw;
+        max-width: 60vw;
         max-height: 52vh;
       }
     }
@@ -206,8 +207,8 @@
     }
     @media (orientation: portrait) {
       .\$__tagline {
-        font-size: 4.25vw;
-        font-size: min(4.25vw, 3.2vh);
+        font-size: 4vw;
+        font-size: min(4vw, 3vh);
       }
     }
 
@@ -223,14 +224,17 @@
       line-height: 1.2;
       padding: 0 2vw 1vh 2vw;
       font-size: 3.3vh;
+      font-size: min(4vw, 3.3vh);
       margin: 0 auto auto auto;
       text-wrap: balance;
       transition: transform .2s ease;
     }
     @media (orientation: portrait) {
       .\$__description {
-        font-size: 5vw;
-        font-size: min(4vw, 3.3vh);
+        font-size: 4vw;
+        font-size: min(4vw, 2.8vh);
+        padding-left: 4vw;
+        padding-right: 4vw;
       }
     }
 
