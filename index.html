@@ -63,7 +63,9 @@
     }
   /**/}());window.xsalt.defComponent('landing',null);window.xsalt.components['landing'].init=function(){var $refs=this.refs;/**/
     document.addEventListener("DOMContentLoaded", function () {
-      document.documentElement.setAttribute('data-animation-play-state', 'running');
+      setTimeout(function () {
+        document.documentElement.setAttribute('data-animation-play-state', 'running');
+      }, 1000);
     });
 
     var sections = ['landing', 'fast', 'user-friendly', 'secure', 'accessible', 'websites-and-apps', 'robust-and-efficient', 'team', 'job'];
