@@ -239,19 +239,57 @@
         margin-bottom: 0;
       }
     }
+
+    .container-inner {
+      padding: 30px 40px;
+    }
+    .heading {
+      display: flex;
+      padding: 0 20px;
+    }
+    .avatar-img-container {
+      margin: -90px 0 0 0;
+      flex: 0 0 auto;
+    }
+    .titles {
+      padding: 10px 0 0 20px;
+      flex: 1 1 auto;
+    }
+    @media only screen and (max-width: 640px) {
+      .heading {
+        flex-wrap: wrap;
+      }
+      .avatar-img-container {
+        width: 100%;
+        text-align: center;
+      }
+      .avatar-img-container img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .titles {
+        text-align: center;
+      }
+    }
   </style>
   <img src="./assets/bg-plain.gif" class="bg-cover bg-no-repeat bg-center w-full" style="height: 110px;" />
   <div style="max-width: 800px; margin: auto;position: relative;">
   <!-- <img src="./assets/bg.jpg" class="bg-cover bg-no-repeat bg-center w-full" style="height: 130px;" /> -->
   <!-- <div class="w-full" style="height:130px;background:#bddaff;"></div> -->
-  <img src="./assets/francescozaniol.jpg" class="rounded-full w-[180px] absolute left-10" style="top:-80px" />
-  <h1 class="relative w-full" style="padding: 8px 0 4px 250px">Francesco Zaniol</h1>
-  <h2 class="relative w-full" style="padding-left: 250px">
-    Senior Frontend Engineer | Frontend Architect<br />
-    <!-- Contractor / Freelance • Remote EU<br /> -->
-  </h2>
+  <div class="heading">
+    <div class="avatar-img-container">
+      <img src="./assets/francescozaniol.jpg" class="avatar-img rounded-full w-[180px]" style="top:-80px" />
+    </div>
+    <div class="titles">
+      <h1 class="main-title relative w-full">Francesco Zaniol</h1>
+      <h2 class="secondary-title relative w-full">
+        Senior Frontend Engineer | Frontend Architect<br />
+        <!-- Contractor / Freelance • Remote EU<br /> -->
+      </h2>
+    </div>
+  </div>
 
-  <div class="px-16 pr-28 pt-5 pb-8" style="padding-top:40px">
+  <div class="container-inner">
 
     <h3>About</h3>
     <p style="margin-bottom: .4em">Hi, I'm Frank 👋 I am a Frontend Engineer with <strong class="mid-bold">15 years of industry experience</strong>. I create fast, user-friendly, secure and accessible websites and apps, while delivering robust and efficient solutions.</p>
